@@ -1,0 +1,84 @@
+// Header guard
+#ifndef HALLOFTRIPS_H
+#define HALLOFTRIPS_H
+
+// Variables
+static vector<string> trips;
+static map<string, int> tripsLeaderboard;
+static string HallOfTripsOutput;
+
+// Main function
+void HallOfTrips() {
+
+	// forEachMessage
+	forEachMessage.push_back([](Chat chat) {
+
+		// Exceptions
+		if(chat.id == "3454847e-6c12-11e5-9680-0eb7787afe7f" || 
+		   chat.id == "ad16f994-9a03-11e6-ba7a-0e5676d6e010" ||
+		   chat.id == "aec2de70-298a-11e4-a128-12313b0ea0a5" ||
+		   chat.id == "d0def8c8-6c0e-11e5-bd45-0e7eccdaeabd" ||
+		   chat.id == "35499770-6c12-11e5-bc53-0e6b3fdbebb1" ||
+		   chat.id == "3649d73e-6c12-11e5-a397-0eb4554fb32f" ||
+		   chat.id == "3776daee-6c12-11e5-bf80-0eb6627f4805") 
+			return; // spam message
+		if(chat.stricken) return; // message has been stricken
+		if(chat.count == "-1") return; // message does not contain count
+
+		// Terminate if string does not end with 333
+		string suffix = "333";
+		if(chat.count.size() < suffix.size()) return; // shorter than suffix
+		if(0 != chat.count.compare(chat.count.length() - suffix.length(), suffix.length(), suffix)) {
+			return;
+		}
+
+		// Terminate if map already contains this trip
+		if(find(trips.begin(), trips.end(), chat.count) != trips.end()) {
+			return;
+		}
+		trips.push_back(chat.count);
+
+		// Update leaderboard
+		if(chat.author != "[deleted]") {
+			if(tripsLeaderboard.find(chat.author) == tripsLeaderboard.end()) {
+				tripsLeaderboard.insert(pair<string, int>(chat.author, 0));
+			}
+			tripsLeaderboard[chat.author]++;
+		}
+
+		// Output
+		HallOfTripsOutput = "* [" +chat.count+ "](https://www.reddit.com/live/ta535s1hq2je/updates/" +chat.id+ ") - " +chat.author+ "\n" + HallOfTripsOutput;
+
+	});
+
+	// afterAllMessages
+	afterAllMessages.push_back([]() {
+
+		// Process leaderboard output
+		// Convert map to vector of pairs to sort based on .second
+		vector<pair<string, int> > tripsLeaderboardSorted(tripsLeaderboard.begin(), tripsLeaderboard.end());
+		string tripsLeaderboardString;
+		
+		sort(tripsLeaderboardSorted.begin(), tripsLeaderboardSorted.end(),
+			[](pair<string, int> a, pair<string, int> b) {
+				return a.second > b.second;
+			}
+		);
+
+		for(int i = 9; i >= 0; i--) {
+			tripsLeaderboardString = to_string(i+1) + " | " + tripsLeaderboardSorted[i].first + " | " + to_string(tripsLeaderboardSorted[i].second) + "\n" + tripsLeaderboardString;
+		}
+
+
+		// Output
+		ofstream out("output/HallOfTrips.txt");
+		out << tripsLeaderboardString + "\n###Trips\n\n" + HallOfTripsOutput;
+		cout << "\tUpdated HallOfTrips.txt\n";
+		
+	});
+
+
+	
+}
+
+#endif
