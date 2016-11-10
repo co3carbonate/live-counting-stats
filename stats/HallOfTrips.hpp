@@ -3,9 +3,11 @@
 #define HALLOFTRIPS_H
 
 // Variables
-static vector<string> trips;
-static map<string, int> tripsLeaderboard;
-static string HallOfTripsOutput;
+namespace {
+	vector<string> trips;
+	map<string, int> tripsLeaderboard;
+	string HallOfTripsOutput;
+}
 
 // Main function
 void HallOfTrips() {

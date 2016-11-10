@@ -3,8 +3,10 @@
 #define FIRSTCOUNT_H
 
 // Variables
-static vector<string> usersAnalysed;
-static string FirstCountOutput;
+namespace {
+	vector<string> usersAnalysed;
+	string FirstCountOutput;
+}
 
 // Main function
 void FirstCount() {

@@ -3,7 +3,9 @@
 #define KSPARTICIPATION_H
 
 // Variables
-static map<int, set<string> > KsParticipationArr;
+namespace {
+	map<int, set<string> > KsParticipationArr;
+}
 
 // Main function
 void KsParticipation() {
@@ -43,11 +45,11 @@ void KsParticipation() {
 		// Leaderboard in map (unsorted)
 		map<string, int> KsLeaderboard;
 		for(auto i : KsParticipationArr) {
-			for (set<string>::iterator j = i.second.begin(); j != i.second.end(); j++) {
-				if(KsLeaderboard.find(*j) == KsLeaderboard.end()) {
-					KsLeaderboard.insert(pair<string, int>(*j, 0));
+			for(auto j : i.second) {
+				if(KsLeaderboard.find(j) == KsLeaderboard.end()) {
+					KsLeaderboard.insert(pair<string, int>(j, 0));
 				}
-				KsLeaderboard[*j]++;
+				KsLeaderboard[j]++;
 			}
 		}
 

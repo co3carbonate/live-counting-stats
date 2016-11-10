@@ -7,19 +7,27 @@ vector<function<void(Chat)>> forEachMessage;
 vector<function<void()>> afterAllMessages;
 
 // Local includes
+#include "stats/AccurateUpTo.hpp"
 #include "stats/FirstCount.hpp"
 #include "stats/HallOfCounters.hpp"
 #include "stats/HallOfTrips.hpp"
 #include "stats/KsParticipation.hpp"
+#include "stats/DaysParticipation.hpp"
+#include "stats/HallOfRepDigits.hpp"
+#include "stats/HallOfPalindromes.hpp"
 
 // Main function
 void generateStats() {
 
 	// Call main functions from local includes
+	AccurateUpTo();
 	FirstCount();
 	HallOfCounters();
 	HallOfTrips();
 	KsParticipation();
+	DaysParticipation();
+	HallOfRepDigits();
+	HallOfPalindromes();
 
 	// Loop through all messages - starting from count 1
 	cout << "Updating statistics:\n";

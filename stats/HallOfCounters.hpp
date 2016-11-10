@@ -3,7 +3,9 @@
 #define HALLOFCOUNTERS_H
 
 // Variables
-static map<string, int> HoCList;
+namespace {
+	map<string, int> HoCList;
+}
 
 // Main function
 void HallOfCounters() {
