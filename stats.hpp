@@ -29,8 +29,11 @@ void generateStats() {
 	HallOfRepDigits();
 	HallOfPalindromes();
 
-	// Loop through all messages - starting from count 1
+	// Preparation
 	cout << "Updating statistics:\n";
+	auto start = chrono::system_clock::now();
+
+	// Loop through all messages - starting from count 1
 	for(int i = l - 1; i >= 0; i--) {
 		
 		// Call forEachMessage
@@ -44,6 +47,12 @@ void generateStats() {
 	for(int i = 0, len = afterAllMessages.size(); i < len; i++) {
 		(afterAllMessages[i])();
 	}
+
+	auto end = chrono::system_clock::now();
+	chrono::duration<double> elapsed = end - start;
+	cout << "Successfully updated statistics (" <<
+	setprecision(2) << fixed << elapsed.count() << "s)\n\n";
+
 
 }
 
