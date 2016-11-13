@@ -3,13 +3,14 @@
 #define DAYSPARTICIPATION_H
 
 // Variables
-namespace {
+namespace DaysParticipation {
 	time_t nextDay;
 	map<time_t, set<string> > DaysParticipationArr;
+	void main();
 }
 
 // Main function
-void DaysParticipation() {
+void DaysParticipation::main() {
 
 	// Init
 	nextDay = data[l - 1].date;

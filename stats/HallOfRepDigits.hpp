@@ -3,14 +3,15 @@
 #define HALLOFREPDIGITS_H
 
 // Variables
-namespace {
+namespace HallOfRepDigits {
 	vector<string> repDigits;
 	map<string, int> repDigitsLeaderboard;
-	string HallOfRepDigitsOutput;
+	string output;
+	void main();
 }
 
 // Main function
-void HallOfRepDigits() {
+void HallOfRepDigits::main() {
 
 	// forEachMessage
 	forEachMessage.push_back([](Chat chat) {
@@ -48,7 +49,7 @@ void HallOfRepDigits() {
 		}
 
 		// Output
-		HallOfRepDigitsOutput = "* [" +chat.count+ "](https://www.reddit.com/live/ta535s1hq2je/updates/" +chat.id+ ") - " +chat.author+ "\n" + HallOfRepDigitsOutput;
+		output = "* [" +chat.count+ "](https://www.reddit.com/live/ta535s1hq2je/updates/" +chat.id+ ") - " +chat.author+ "\n" + output;
 
 	});
 
@@ -73,7 +74,7 @@ void HallOfRepDigits() {
 
 		// Output
 		ofstream out("output/HallOfRepDigits.txt");
-		out << repDigitsLeaderboardString + "\n###Repeating Digits\n\n" + HallOfRepDigitsOutput;
+		out << repDigitsLeaderboardString + "\n###Repeating Digits\n\n" + output;
 		cout << "\tUpdated HallOfRepDigits.txt\n";
 		
 	});

@@ -2,9 +2,9 @@
 #ifndef DATA_H
 #define DATA_H
 
-void retrieveData(int fileIndex) {
+void retrieveData(int fileIndex, string filePathPrefix = "") {
 	// Preparation
-	string filePath = "data/chat" +to_string(fileIndex)+ ".json";
+	string filePath = filePathPrefix + "data/chat" +to_string(fileIndex)+ ".json";
 	json fileJSON;
 	cout << "\tRetrieving '" << filePath << "'\n";
 
@@ -20,7 +20,7 @@ void retrieveData(int fileIndex) {
 	}
 }
 
-void retrieveData() {
+void retrieveData(string filePathPrefix = "") {
 	// Overloading to retrieve data from ALL data files
 	// Also displays time taken to retrieve data
 

@@ -3,14 +3,15 @@
 #define HALLOFTRIPS_H
 
 // Variables
-namespace {
+namespace HallOfTrips {
 	vector<string> trips;
 	map<string, int> tripsLeaderboard;
-	string HallOfTripsOutput;
+	string output;
+	void main();
 }
 
 // Main function
-void HallOfTrips() {
+void HallOfTrips::main() {
 
 	// forEachMessage
 	forEachMessage.push_back([](Chat chat) {
@@ -49,7 +50,7 @@ void HallOfTrips() {
 		}
 
 		// Output
-		HallOfTripsOutput = "* [" +chat.count+ "](https://www.reddit.com/live/ta535s1hq2je/updates/" +chat.id+ ") - " +chat.author+ "\n" + HallOfTripsOutput;
+		output = "* [" +chat.count+ "](https://www.reddit.com/live/ta535s1hq2je/updates/" +chat.id+ ") - " +chat.author+ "\n" + output;
 
 	});
 
@@ -74,7 +75,7 @@ void HallOfTrips() {
 
 		// Output
 		ofstream out("output/HallOfTrips.txt");
-		out << tripsLeaderboardString + "\n###Trips\n\n" + HallOfTripsOutput;
+		out << tripsLeaderboardString + "\n###Trips\n\n" + output;
 		cout << "\tUpdated HallOfTrips.txt\n";
 		
 	});

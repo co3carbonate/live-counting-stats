@@ -3,12 +3,13 @@
 #define KSPARTICIPATION_H
 
 // Variables
-namespace {
+namespace KsParticipation {
 	map<int, set<string> > KsParticipationArr;
+	void main();
 }
 
 // Main function
-void KsParticipation() {
+void KsParticipation::main() {
 
 	// forEachMessage
 	forEachMessage.push_back([](Chat chat) {

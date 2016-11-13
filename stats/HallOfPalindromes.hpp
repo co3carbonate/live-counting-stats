@@ -3,14 +3,15 @@
 #define HALLOFPALINDROMES_H
 
 // Variables
-namespace {
+namespace HallOfPalindromes {
 	vector<string> palindromes;
 	map<string, int> palindromesLeaderboard;
-	string HallOfPalindromesOutput;
+	string output;
+	void main();
 }
 
 // Main function
-void HallOfPalindromes() {
+void HallOfPalindromes::main() {
 
 	// forEachMessage
 	forEachMessage.push_back([](Chat chat) {
@@ -56,7 +57,7 @@ void HallOfPalindromes() {
 		}
 
 		// Output
-		HallOfPalindromesOutput = "* [" +chat.count+ "](https://www.reddit.com/live/ta535s1hq2je/updates/" +chat.id+ ") - " +chat.author+ "\n" + HallOfPalindromesOutput;
+		output = "* [" +chat.count+ "](https://www.reddit.com/live/ta535s1hq2je/updates/" +chat.id+ ") - " +chat.author+ "\n" + output;
 
 	});
 
@@ -81,7 +82,7 @@ void HallOfPalindromes() {
 
 		// Output
 		ofstream out("output/HallOfPalindromes.txt");
-		out << palindromesLeaderboardString + "\n###Palindromes\n\n" + HallOfPalindromesOutput;
+		out << palindromesLeaderboardString + "\n###Palindromes\n\n" + output;
 		cout << "\tUpdated HallOfPalindromes.txt\n";
 		
 	});

@@ -3,13 +3,14 @@
 #define FIRSTCOUNT_H
 
 // Variables
-namespace {
+namespace FirstCount {
 	vector<string> usersAnalysed;
-	string FirstCountOutput;
+	string output;
+	void main();
 }
 
 // Main function
-void FirstCount() {
+void FirstCount::main() {
 
 	// forEachMessage
 	forEachMessage.push_back([](Chat chat) {
@@ -25,7 +26,7 @@ void FirstCount() {
 		// Process
 		replace(chat.body.begin(), chat.body.end(), '\n', ' ');
 		chat.body = "[" +chat.body+ "](https://www.reddit.com/live/ta535s1hq2je/updates/" +chat.id+ ")";
-		FirstCountOutput = chat.author + " | " +chat.body+ " | " +chat.date_string+ "\n" + FirstCountOutput;
+		output = chat.author + " | " +chat.body+ " | " +chat.date_string+ "\n" + output;
 
 	});
 
@@ -34,7 +35,7 @@ void FirstCount() {
 
 		// Output
 		ofstream out("output/FirstCount.txt");
-		out << FirstCountOutput;
+		out << output;
 		cout << "\tUpdated FirstCount.txt\n";
 		
 	});

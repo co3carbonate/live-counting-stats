@@ -11,7 +11,8 @@ class Chat {
 			// Count (detect the count from chat["body"])
 			string body = chat["body"];
 			string num;
-			for(int i = 0, len = body.size(); i < len; i++) {
+			int i = 0;
+			for(int len = body.size(); i < len; i++) {
 				char s = body[i];
 				if(isdigit(s)) {
 					num += s;
@@ -33,6 +34,7 @@ class Chat {
 					break;
 				}
 			}
+			//this->count_end_index = i;
 			if(num.empty() || find_if(num.begin(), num.end(), (int(*)(int))isdigit) == num.end()) {
 				this->count = "-1"; // number is empty or does not contain numbers
 			} else {
@@ -58,7 +60,7 @@ class Chat {
 			this->id = chat["id"];
 			this->author = chat["author"];
 			this->body = chat["body"];
-			this->body_html = chat["body_html"];
+			//this->body_html = chat["body_html"];
 			this->name = chat["name"];
 			this->stricken = chat["stricken"];
 
@@ -71,9 +73,8 @@ class Chat {
 		string author;
 		string body;
 		string name;
-		string body_html;
-		// TO DO: embeds and mobile_embeds
-		// for now, comment out useless members
+		//string body_html;
+		//int count_end_index;
 };
 
 

@@ -16,6 +16,7 @@ using json = nlohmann::json;
 int main() {
 	retrieveData();
 	generateStats();
+	
 	cout << "Program execution completed";
 
 	return 0;

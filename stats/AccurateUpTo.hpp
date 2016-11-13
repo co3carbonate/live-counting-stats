@@ -3,19 +3,20 @@
 #define ACCURATEUPTO_H
 
 // Variables
-namespace {
+namespace AccurateUpTo {
 	bool done = false;
-	string AccurateUpToOutput;
+	string output;
+	void main();
 }
 
 // Main function
-void AccurateUpTo() {
+void AccurateUpTo::main() {
 
 	// forEachMessage
 	forEachMessage.push_back([](Chat chat) {
 
 		if(chat.count != "-1") {
-			AccurateUpToOutput = chat.count;
+			output = chat.count;
 			done = true;
 		}
 
@@ -26,12 +27,10 @@ void AccurateUpTo() {
 
 		// Output
 		ofstream out("output/AccurateUpTo.txt");
-		out << AccurateUpToOutput;
+		out << output;
 		cout << "\tUpdated AccurateUpTo.txt\n";
 		
 	});
-
-
 	
 }
 

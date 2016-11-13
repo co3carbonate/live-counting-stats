@@ -3,12 +3,13 @@
 #define HALLOFCOUNTERS_H
 
 // Variables
-namespace {
+namespace HallOfCounters {
 	map<string, int> HoCList;
+	void main();
 }
 
 // Main function
-void HallOfCounters() {
+void HallOfCounters::main() {
 
 	// forEachMessage
 	forEachMessage.push_back([](Chat chat) {
