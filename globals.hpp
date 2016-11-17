@@ -11,6 +11,6 @@ int l; // size of chat data vector
 // (override if necessary)
 vector<string> statsToRun
 = {"AccurateUpTo", "FirstCount", "HallOfCounters", "HallOfTrips", "KsParticipation", "DaysParticipation", "HallOfRepDigits", "HallOfPalindromes"};
-//= {"AccurateUpTo"};
+//= {"HallOfCountersPer100k"};
 
 #endif
