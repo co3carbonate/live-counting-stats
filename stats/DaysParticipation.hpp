@@ -1,6 +1,4 @@
-// Header guard
-#ifndef DAYSPARTICIPATION_H
-#define DAYSPARTICIPATION_H
+#pragma once
 
 // Variables
 namespace DaysParticipation {
@@ -72,5 +70,3 @@ void DaysParticipation::main() {
 
 	
 }
-
-#endif

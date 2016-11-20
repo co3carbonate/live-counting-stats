@@ -1,6 +1,4 @@
-// Header guard
-#ifndef HALLOFTRIPS_H
-#define HALLOFTRIPS_H
+#pragma once
 
 // Variables
 namespace HallOfTrips {
@@ -83,5 +81,3 @@ void HallOfTrips::main() {
 
 	
 }
-
-#endif

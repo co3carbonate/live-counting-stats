@@ -1,6 +1,4 @@
-// Header guard
-#ifndef FIRSTCOUNT_H
-#define FIRSTCOUNT_H
+#pragma once
 
 // Variables
 namespace FirstCount {
@@ -43,5 +41,3 @@ void FirstCount::main() {
 
 	
 }
-
-#endif

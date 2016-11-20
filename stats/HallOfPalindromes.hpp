@@ -1,6 +1,4 @@
-// Header guard
-#ifndef HALLOFPALINDROMES_H
-#define HALLOFPALINDROMES_H
+#pragma once
 
 // Variables
 namespace HallOfPalindromes {
@@ -90,5 +88,3 @@ void HallOfPalindromes::main() {
 
 	
 }
-
-#endif

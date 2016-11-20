@@ -1,6 +1,4 @@
-// Header guard
-#ifndef CLASSCHAT_H
-#define CLASSCHAT_H
+#pragma once
 
 class Chat {
 	public:
@@ -34,7 +32,6 @@ class Chat {
 					break;
 				}
 			}
-			//this->count_end_index = i;
 			if(num.empty() || find_if(num.begin(), num.end(), (int(*)(int))isdigit) == num.end()) {
 				this->count = "-1"; // number is empty or does not contain numbers
 			} else {
@@ -74,9 +71,5 @@ class Chat {
 		string body;
 		string name;
 		//string body_html;
-		//int count_end_index;
 };
 
-
-
-#endif

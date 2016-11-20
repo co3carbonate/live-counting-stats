@@ -1,6 +1,4 @@
-// Header guard
-#ifndef GLOBALS_H
-#define GLOBALS_H
+#pragma once
 
 // Global variables
 vector<Chat> data; // chat data
@@ -12,5 +10,3 @@ int l; // size of chat data vector
 vector<string> statsToRun
 = {"AccurateUpTo", "FirstCount", "HallOfCounters", "HallOfTrips", "KsParticipation", "DaysParticipation", "HallOfRepDigits", "HallOfPalindromes"};
 //= {"HallOfCountersPer100k"};
-
-#endif

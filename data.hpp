@@ -1,6 +1,4 @@
-// Header guard
-#ifndef DATA_H
-#define DATA_H
+#pragma once
 
 void retrieveData(int fileIndex, string filePathPrefix = "") {
 	// Preparation
@@ -46,6 +44,3 @@ void retrieveData(string filePathPrefix = "") {
 	l = data.size();
 
 }
-
-
-#endif

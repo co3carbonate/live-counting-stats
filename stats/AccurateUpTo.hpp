@@ -1,6 +1,4 @@
-// Header guard
-#ifndef ACCURATEUPTO_H
-#define ACCURATEUPTO_H
+#pragma once
 
 // Variables
 namespace AccurateUpTo {
@@ -33,5 +31,3 @@ void AccurateUpTo::main() {
 	});
 	
 }
-
-#endif

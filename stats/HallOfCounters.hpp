@@ -1,6 +1,4 @@
-// Header guard
-#ifndef HALLOFCOUNTERS_H
-#define HALLOFCOUNTERS_H
+#pragma once
 
 // Variables
 namespace HallOfCounters {
@@ -58,5 +56,3 @@ void HallOfCounters::main() {
 
 	
 }
-
-#endif

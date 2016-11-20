@@ -1,6 +1,4 @@
-// Header guard
-#ifndef HALLOFREPDIGITS_H
-#define HALLOFREPDIGITS_H
+#pragma once
 
 // Variables
 namespace HallOfRepDigits {
@@ -82,5 +80,3 @@ void HallOfRepDigits::main() {
 
 	
 }
-
-#endif

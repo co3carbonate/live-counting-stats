@@ -1,6 +1,4 @@
-// Header guard
-#ifndef KSPARTICIPATION_H
-#define KSPARTICIPATION_H
+#pragma once
 
 // Variables
 namespace KsParticipation {
@@ -78,5 +76,3 @@ void KsParticipation::main() {
 
 	
 }
-
-#endif

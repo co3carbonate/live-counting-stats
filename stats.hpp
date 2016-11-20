@@ -1,6 +1,4 @@
-// Header guard
-#ifndef STATS_H
-#define STATS_H
+#pragma once
 
 // Global variables for stats
 vector<function<void(Chat)>> forEachMessage;
@@ -68,8 +66,3 @@ void generateStats() {
 
 
 }
-
-
-
-
-#endif
