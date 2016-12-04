@@ -1,10 +1,10 @@
-1 | /u/dominodan123 | 21391
+1 | /u/dominodan123 | 21396
 2 | /u/qwertylool | 17127
-3 | /u/TOP_20 | 16275
+3 | /u/TOP_20 | 16302
 4 | /u/amazingpikachu_38 | 15153
-5 | /u/QuestoGuy | 6524
-6 | /u/artbn | 6196
-7 | /u/Smartstocks | 3395
+5 | /u/QuestoGuy | 6525
+6 | /u/artbn | 6204
+7 | /u/Smartstocks | 3408
 8 | /u/KingCaspianX | 3366
 9 | /u/davidjl123 | 2042
 10 | /u/rschaosid | 1643
@@ -25,7 +25,7 @@
 25 | /u/Removedpixel | 63
 26 | /u/UnidanX | 61
 27 | /u/rideride | 52
-28 | /u/parker_cube | 49
+28 | /u/parker_cube | 50
 29 | /u/NFSHaloSC2 | 47
 30 | /u/wertercatt | 46
 31 | /u/Mooraell | 41

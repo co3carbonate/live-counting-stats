@@ -20,6 +20,6 @@ class.chat.hpp - each message from the retrieved data is stored into a class `Ch
 
 globals.hpp - all global variables for the actual "non-library" files are here, including a vector `data` of class Chat
 
-data.hpp - defines function `retrieveData()` called in `main()`, which retrieves data from the JSON files in the "data" folder, and stores these data into `data` from glboals.hpp 
+data.hpp - defines function `retrieveData()` called in `main()`, which retrieves data from the JSON files in the "data" folder, and stores these data into `data` from glboals.hpp (note that the JSON files in the "data" folder are updated through a JavaScript/PHP script which is not present here)
 
 stats.hpp - defines function `generateStats()` called in `main`, which links all the .hpp files in the "stats" folder to generate stats from the retrieved data and outputs those stats to the "output" folder

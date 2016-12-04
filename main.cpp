@@ -19,5 +19,6 @@ int main() {
 	
 	cout << "Program execution completed";
 
+	getchar();
 	return 0;
 }

@@ -8,5 +8,7 @@ int l; // size of chat data vector
 // These are the names of the standard stats functions to run
 // (override if necessary)
 vector<string> statsToRun
-= {"AccurateUpTo", "FirstCount", "HallOfCounters", "HallOfTrips", "KsParticipation", "DaysParticipation", "HallOfRepDigits", "HallOfPalindromes"};
+//= {"AccurateUpTo", "FirstCount", "HallOfCounters", "HallOfTrips", "KsParticipation", "DaysParticipation", "HallOfRepDigits", "HallOfPalindromes"};
 //= {"HallOfCountersPer100k"};
+//= {"NoOfCountsOverTime"};
+= {"OddEvenRatio"};

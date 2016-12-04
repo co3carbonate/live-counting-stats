@@ -22,7 +22,7 @@ void DaysParticipation::main() {
 		if(chat.count == "-1") return; // message does not contain number
 
 		// Change to the next day
-		if(chat.date >= nextDay) {
+		while(chat.date >= nextDay) {
 			nextDay += 86400;
 			DaysParticipationArr.insert(pair<time_t, set<string> >(nextDay, {}));
 		}

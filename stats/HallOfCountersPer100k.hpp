@@ -59,7 +59,7 @@ void HallOfCountersPer100k::main() {
 
 			// Sort vector of pairs based on .second
 			sort(HoCArr.begin(), HoCArr.end(), [](pair<string, int> a, pair<string, int> b) {
-				return a.second > b.second;
+				return a.second > b.second;	
 			});
 
 			// Generate output

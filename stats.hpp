@@ -18,6 +18,8 @@ vector<function<void()>> afterAllMessages;
 
 // Extras stats (must be manually added to statsToRun vector)
 #include "stats/HallOfCountersPer100k.hpp"
+#include "stats/NoOfCountsOverTime.hpp"
+#include "stats/OddEvenRatio.hpp"
 
 // Main function
 void generateStats() {
@@ -37,7 +39,10 @@ void generateStats() {
 		else if(c == "DaysParticipation") DaysParticipation::main();
 		else if(c == "HallOfRepDigits") HallOfRepDigits::main();
 		else if(c == "HallOfPalindromes") HallOfPalindromes::main();
+		// extras:
 		else if(c == "HallOfCountersPer100k") HallOfCountersPer100k::main();
+		else if(c == "NoOfCountsOverTime") NoOfCountsOverTime::main();
+		else if(c == "OddEvenRatio") OddEvenRatio::main();
 	}
 
 	// Preparation

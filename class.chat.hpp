@@ -20,7 +20,7 @@ class Chat {
 					continue;
 				} 
 				else if(s == '~' || s == '^' || s == '#' ||
-						s == '*' || s == '>') {
+						s == '*' || s == '>' || s == '\n') {
 					// Only allow special formatting characters if they are at 
 					// the start of the string
 					if(num.empty()) {
