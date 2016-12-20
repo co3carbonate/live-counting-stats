@@ -25,11 +25,23 @@ void HallOfRepDigits::main() {
 		if(chat.stricken) return; // message has been stricken
 		if(chat.count == "-1") return; // message does not contain count
 
-		// Terminate if string is not a rep-digit number
+		// Terminate if string is too short
 		int length = chat.count.size();
-		if(length <= 2 || length % 2 > 0) return; // must be even number of digits
-		string s1 = chat.count.substr(0, length / 2);
-		string s2 = chat.count.substr(length / 2, length / 2);
+		if(length < 4) return; // too short
+
+		string s1, s2;
+		if(length % 2 == 0) {
+			// even number of digits
+			s1 = chat.count.substr(0, length / 2);
+			s2 = chat.count.substr(length / 2, length / 2);
+		} else {
+			// odd number of digits
+			// check for 1,xyz,xyz
+			int mid = (length - 1) / 2;
+			s1 = chat.count.substr(1, mid);
+			s2 = chat.count.substr(mid + 1, mid);
+		}
+
 		if(s1 != s2) return;
 
 		// Terminate if map already contains this rep-digit
@@ -47,7 +59,7 @@ void HallOfRepDigits::main() {
 		}
 
 		// Output
-		output = "* [" +chat.count+ "](https://www.reddit.com/live/ta535s1hq2je/updates/" +chat.id+ ") - " +chat.author+ "\n" + output;
+		output = "* [" +addCommas(chat.count)+ "](https://www.reddit.com/live/ta535s1hq2je/updates/" +chat.id+ ") - " +chat.author+ "\n" + output;
 
 	});
 
