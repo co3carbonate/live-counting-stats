@@ -16,11 +16,11 @@ class Chat {
 					num += s;
 					continue;
 				} 
-				else if(s == ' ' || s == ',') {
+				else if(s == ' ' || s == ',' || s == '.') {
 					continue;
 				} 
 				else if(s == '~' || s == '^' || s == '#' ||
-						s == '*' || s == '>' || s == '\n') {
+						s == '*' || s == '>' || s == '`' || s == '\n') {
 					// Only allow special formatting characters if they are at 
 					// the start of the string
 					if(num.empty()) {
@@ -62,6 +62,12 @@ class Chat {
 			this->stricken = chat["stricken"];
 
 		}
+
+		// Overload constructor function for no arguments
+		Chat() {
+			// Do nothing
+		}
+
 		bool stricken;
 		time_t date;
 		string id;

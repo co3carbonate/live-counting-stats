@@ -2,16 +2,13 @@
 
 // Variables
 namespace DaysParticipation {
-	time_t nextDay;
+	time_t nextDay = 1406131200;
 	map<time_t, set<string> > DaysParticipationArr;
 	void main();
 }
 
 // Main function
 void DaysParticipation::main() {
-
-	// Init
-	nextDay = data[l - 1].date;
 
 	// forEachMessage
 	forEachMessage.push_back([](Chat chat) {

@@ -11,6 +11,7 @@ vector<function<void()>> afterAllMessages;
 #include "stats/FirstCount.hpp"
 #include "stats/HallOfCounters.hpp"
 #include "stats/HallOfTrips.hpp"
+#include "stats/HallOf666s.hpp"
 #include "stats/KsParticipation.hpp"
 #include "stats/DaysParticipation.hpp"
 #include "stats/HallOfRepDigits.hpp"
@@ -35,6 +36,7 @@ void generateStats() {
 		else if(c == "FirstCount") FirstCount::main();
 		else if(c == "HallOfCounters") HallOfCounters::main();
 		else if(c == "HallOfTrips") HallOfTrips::main();
+		else if(c == "HallOf666s") HallOf666s::main();
 		else if(c == "KsParticipation") KsParticipation::main();
 		else if(c == "DaysParticipation") DaysParticipation::main();
 		else if(c == "HallOfRepDigits") HallOfRepDigits::main();

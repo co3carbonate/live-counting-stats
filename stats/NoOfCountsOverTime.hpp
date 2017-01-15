@@ -2,16 +2,13 @@
 
 // Variables
 namespace NoOfCountsOverTime {
-	time_t nextDay;
+	time_t nextDay = 1406131200;
 	map<time_t, int > DayCounts;
 	void main();
 }
 
 // Main function
 void NoOfCountsOverTime::main() {
-
-	// Init
-	nextDay = data[l - 1].date;
 
 	// forEachMessage
 	forEachMessage.push_back([](Chat chat) {

@@ -22,7 +22,8 @@ void HallOfCountersPer100k::main() {
 		if(chat.id == "98399ad6-77d0-11e6-9ce5-0e5c0099a997"
 		|| chat.id == "e2d51cfc-1ec9-11e5-8540-0ee61c357d3b"
 		|| chat.id == "94fe28ba-a60f-11e6-93c1-0eebf8235ba8"
-		|| chat.id == "f813ee46-a6ad-11e6-8145-0e064f2e6070") return; // blacklisted messages
+		|| chat.id == "f813ee46-a6ad-11e6-8145-0e064f2e6070"
+		|| chat.id == "c66a8c3c-98e4-11e6-a244-0e56c1175d95") return; // blacklisted messages
 
 		// Process
 		if(HoCPer100kList[currentK].find(chat.author) == HoCPer100kList[currentK].end()) {
@@ -65,7 +66,7 @@ void HallOfCountersPer100k::main() {
 			// Generate output
 			string output;
 			for(int i = 0; i < HoCArr.size(); i++) {
-				output += to_string(i+1) + " | " + HoCArr[i].first + " | " + to_string(HoCArr[i].second) + '\n';
+				output += to_string(i+1) + " | " + HoCArr[i].first + " | " + addCommas(to_string(HoCArr[i].second)) + '\n';
 			}
 
 			// Output

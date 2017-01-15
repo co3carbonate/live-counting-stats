@@ -12,9 +12,12 @@ void retrieveData(int fileIndex, string filePathPrefix = "") {
 	cout << "\tSuccessfully retrieved '" << filePath << "'\n";
 
 	// Append retrieved data to data variable
-	for(int i = 0, len = fileJSON.size(); i < len; i++) {
+	int len = fileJSON.size();
+	int oldlen = data.size();
+	data.resize(len + oldlen);
+	for(int i = 0; i < len; i++) {
 		Chat chat = fileJSON[i];
-		data.push_back(chat);
+		data[oldlen + i] = chat;
 	}
 }
 

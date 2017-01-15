@@ -14,7 +14,7 @@ void AccurateUpTo::main() {
 	forEachMessage.push_back([](Chat chat) {
 
 		if(chat.count != "-1") {
-			output = chat.count;
+			output = addCommas(chat.count);
 			done = true;
 		}
 

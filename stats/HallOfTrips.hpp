@@ -48,7 +48,7 @@ void HallOfTrips::main() {
 		}
 
 		// Output
-		output = "* [" +chat.count+ "](https://www.reddit.com/live/ta535s1hq2je/updates/" +chat.id+ ") - " +chat.author+ "\n" + output;
+		output = "* [" +addCommas(chat.count)+ "](https://www.reddit.com/live/ta535s1hq2je/updates/" +chat.id+ ") - " +chat.author+ "\n" + output;
 
 	});
 

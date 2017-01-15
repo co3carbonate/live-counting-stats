@@ -44,7 +44,7 @@ void HallOfCounters::main() {
 		// Generate output
 		string output;
 		for(int i = 0; i < HoCArr.size(); i++) {
-			output += to_string(i+1) + " | " + HoCArr[i].first + " | " + to_string(HoCArr[i].second) + '\n';
+			output += to_string(i+1) + " | " + HoCArr[i].first + " | " + addCommas(to_string(HoCArr[i].second)) + '\n';
 		}
 
 		// Output
