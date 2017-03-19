@@ -1,0 +1,165 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Update Database</title>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js'></script>
+<script>
+String.prototype.replaceLast = function (what, replacement) {
+	return this.split(' ').reverse().join(' ').replace(new RegExp(what), replacement).split(' ').reverse().join(' ');
+};
+</script>
+<script>
+
+window.onload = function() {
+
+// Initialize lastChatFile and latest chat data
+var stopPoint = [];
+var chat = [];
+var lastChatFile;
+var addCommaToEnd = true;
+
+$.ajax({
+	dataType: 'text',
+	url: '../data/lastChatFile.txt?v=' +Date.now(),
+	success: function(data) {
+		lastChatFile = data;
+		var temp = data;
+		function getLatest() {
+			$.ajax({
+				dataType: 'json',
+				url: '../data/chat' +temp+ '.json?v=' +Date.now(),
+				success: function(data) {
+					if(data.length == 0) {
+						temp--;
+						addCommaToEnd = false;
+						getLatest();
+						return;
+					}
+					chat = data;
+					for(var i = 0, p = Math.min(chat.length, 10); i < p; i++) {
+						stopPoint.push(chat[i].name);
+					}
+					chatRequest();
+				}
+			});
+		}
+		getLatest();
+	}
+});
+
+// Send JSON requests until StopPoint is reached
+var parameters = {count: 100};
+var update = [];
+function chatRequest() {
+	$.ajax({
+		method: 'GET',
+		data: parameters,
+		dataType: 'json',
+		url: 'https://www.reddit.com/live/ta535s1hq2je.json',
+		success: function(data) {
+			var msgs = data.data.children;
+			var l = msgs.length;
+			for(var i = 0; i < l; i++) {
+				if(stopPoint.indexOf(msgs[i].data.name) > -1) {
+					completed();
+					return;
+				}
+				update.push(msgs[i].data);
+			}
+			var last = msgs[l - 1].data.name;
+			parameters.after = last;
+			document.getElementById('status').innerHTML = 'Retrieved ' + update.length + ' messages';
+			chatRequest();
+		},
+		error: chatRequest
+	});
+}
+
+// Request completed, wait for password
+function completed() {
+	if(update.length == 0) {
+		document.getElementById('status').innerHTML = 'Database already up to date';
+		return;
+	}
+	document.getElementById('passwordBox').style.display = '';
+	document.getElementById('passwordIn').focus();
+	document.getElementById('status').innerHTML = 'Retrieval complete (' + update.length + ' messages)<br>Waiting for password';
+}
+
+// Password entered, send data and password to process.php					
+function password() {
+	var password = document.getElementById('passwordIn').value.trim();
+	if(password.length == 0) return;
+
+	document.getElementById('passwordBox').style.display = 'none';
+	document.getElementById('status').innerHTML = 'Updating database';
+
+	var output = JSON.stringify(update).replace('[', '').replace(/\]([^\]]*)$/, '') + ((addCommaToEnd) ? ',' : '');
+	
+	$.ajax({
+		method: 'POST',
+		data: {password: password, content: output, chatFile: lastChatFile},
+		url: 'process.php',
+		success: function(data) {
+			document.getElementById('status').innerHTML = data;
+			if(data.indexOf('password') > -1) {
+				// Password error
+				document.getElementById('passwordBox').style.display = '';
+				document.getElementById('passwordIn').focus();
+			} else if(data.indexOf(' successful') > -1) {
+				// Successful
+			} else {
+				document.getElementById('retry').style.display = '';
+			}
+		},
+		error: function() {
+			document.getElementById('status').innerHTML = 'Error with internet connection or server. Please try again.'
+			document.getElementById('retry').style.display = '';
+		}
+	});
+}
+
+// Password submission (enter key or button)
+document.getElementById('passwordIn').onkeydown = function(e) {
+	if(e.keyCode == 13) {
+		password(); 
+	}
+}
+document.getElementById('btn').onclick = password;
+
+document.getElementById('retry').onclick = function() {
+	this.style.display = 'none';
+	password();
+}
+
+
+
+}; // THE END
+
+
+</script>
+<style>
+body {
+	text-align: center;
+	font-family: Arial;
+}
+input[type=button] {
+	cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h1 id='status'>Initializing</h1>
+
+<div id='passwordBox' style='display: none;'>
+Password: <input type='password' id='passwordIn'>
+<input type='button' id='btn' value='Enter'>
+</div>
+
+<input type='button' id='retry' value='Retry' style='display: none;'>
+
+</body>
+</html>

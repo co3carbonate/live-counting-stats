@@ -50,7 +50,7 @@ void OddEvenRatio::main() {
 		// Generate output
 		string output;
 		for(int i = 0; i < OddEvenArr.size(); i++) {
-			output += to_string(i+1) + " | " + OddEvenArr[i].first + " | " + to_string(OddEvenArr[i].second.first);
+			output += to_string(i+1) + " | " + OddEvenArr[i].first + " | " + addCommas(to_string(OddEvenArr[i].second.first));
 			double oddRatio = (double)((double)OddEvenArr[i].second.second.first / (double)OddEvenArr[i].second.first) * (double)100;
 			double evenRatio = (double)((double)OddEvenArr[i].second.second.second / (double)OddEvenArr[i].second.first) * (double)100;
 			char oddStr[24], evenStr[24]; 

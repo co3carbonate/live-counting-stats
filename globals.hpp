@@ -19,5 +19,7 @@ string addCommas(string num) {
 // These are the names of the standard stats functions to run
 // (override if necessary)
 vector<string> statsToRun
-= {"AccurateUpTo", "FirstCount", "HallOfCounters", "HallOfTrips", "HallOf666s", "KsParticipation", "DaysParticipation", "HallOfRepDigits", "HallOfPalindromes"};
-//= {"HallOfCountersPer100k", "NoOfCountsOverTime", "OddEvenRatio"};
+= {"AccurateUpTo", "FirstCount", "HallOfCounters", "HallOfTrips", "HallOf666s", "KsParticipation", "DaysParticipation", "HallOfRepDigits", "HallOfPalindromes"
+
+,"HallOfCountersPer100k", "NoOfCountsOverTime", "OddEvenRatio"
+};

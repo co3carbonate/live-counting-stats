@@ -42,7 +42,7 @@ void NoOfCountsOverTime::main() {
 			strftime(buffer, sizeof(buffer), "%d %b '%y", gmtime(&currentDay));
 			string date_string = string(buffer);
 
-			output += date_string+ " | " +to_string(count)+ "\n";
+			output += date_string+ " | " +addCommas(to_string(count))+ "\n";
 		}
 
 		// Output

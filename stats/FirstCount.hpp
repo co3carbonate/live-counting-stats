@@ -15,6 +15,8 @@ void FirstCount::main() {
 
 		// Exceptions
 		if(chat.author == "[deleted]") return; // deleted user
+		if(chat.stricken) return; // message stricken
+		if(chat.count == "-1") return; // message does not contain number
 		if(find(usersAnalysed.begin(), usersAnalysed.end(), chat.author) != usersAnalysed.end()) { // current user already accounted for
 			return;
 		}

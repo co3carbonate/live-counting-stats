@@ -1,0 +1,83 @@
+﻿<html>
+<head>
+<base target='_blank'>
+<style>
+body {
+	text-align: center;
+	font-family: Arial;
+}
+textarea {
+	width: 1000px;
+	height: 300px;
+}
+</style>
+<script>
+
+// Useful functions
+function loadTxt(path, success, error) {
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState === XMLHttpRequest.DONE) {
+			if (xhr.status === 200) {
+				if (success)
+					success(xhr.responseText);
+			} else {
+				if (error)
+					error(xhr);
+			}
+		}
+	};
+	path += '?v=' + Math.random().toString().split('.')[1]; // prevent caching
+	xhr.open("GET", path, true);
+	xhr.send();
+}
+function stats(titleName, pageName, fileName) {
+	var link = document.createElement('a');
+	var h1 = document.createElement('h1');
+	var textarea = document.createElement('textarea');
+
+	textarea.spellcheck = false;
+	
+	link.href = 'https://www.reddit.com/r/livecounting/wiki/edit/' + pageName;
+	link.innerHTML = titleName;
+	h1.appendChild(link);
+
+	document.body.appendChild(h1);
+	document.body.appendChild(textarea);
+
+	loadTxt('../output/' +fileName, function(content) {
+		textarea.innerHTML = content;
+	});
+}
+
+</script>
+</head>
+<body>
+
+<h1>Accurate up to <span id='AccurateUpTo'>...</span></h1>
+
+<script>
+
+// All stats
+stats('First Counts', 'first_counts', 'FirstCount.txt');
+stats('Hall of Counters', 'hall_of_counters', 'HallOfCounters.txt');
+stats('Hall of Trips', 'hall_of_trips', 'HallOfTrips.txt');
+stats('Hall of 666s', 'hall_of_666s', 'HallOf666s.txt');
+stats('K\'s Participation', 'ks_participation', 'KsParticipation.txt');
+stats('Days Participation', 'days_participation', 'DaysParticipation.txt');
+stats('Hall of Rep-Digits', 'hall_of_rep_digits', 'HallOfRepDigits.txt');
+stats('Hall of Palindromes', 'hall_of_palindromes', 'HallOfPalindromes.txt');
+
+</script>
+
+<script>
+
+// Accurate up to
+loadTxt('../output/AccurateUpTo.txt', function(data) {
+	document.getElementById('AccurateUpTo').innerHTML = data;
+});
+
+</script>
+
+</body>
+</html>
